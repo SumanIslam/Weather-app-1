@@ -5,3 +5,10 @@ body {
 .container {
   max-width: 400px;
 }
+.icon {
+  margin-top: -50px;
+  border-radius: 50%;
+}
+span {
+  font-size: 4rem;
+}
