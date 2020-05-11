@@ -1,4 +1,5 @@
-const key = '9JhTc1CGGgAFfyCQ18uaIxmqQhmC0ySu';
+// const key = '9JhTc1CGGgAFfyCQ18uaIxmqQhmC0ySu';
+const key = '9FVtfI80Tq0GlmPti4jz4XiMw6y3DSlk';
 
 // get weather information
 

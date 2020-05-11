@@ -59,11 +59,11 @@ cityForm.addEventListener('submit', e => {
     .catch(err =>  console.log('Couldn\'t fetch data'));
   e.preventDefault();
 
-  localStorage.setItem('city', CityName);
+  // localStorage.setItem('city', CityName);
 })
 
-if(localStorage.getItem('city')) {
-  updateCity(localStorage.getItem('city'))
-    .then(data => updateUi(data)) 
-    .catch(err => console.log(err));
-}
+// if(localStorage.getItem('city')) {
+//   updateCity(localStorage.getItem('city'))
+//     .then(data => updateUi(data)) 
+//     .catch(err => console.log(err));
+// }
