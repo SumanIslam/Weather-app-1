@@ -2,7 +2,9 @@ const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
-const icon = document.querySelector('.icon img')
+const icon = document.querySelector('.icon img');
+
+const forecast = new Forecast();
 
 
 const updateUi = (data) => {
@@ -39,14 +41,6 @@ const updateUi = (data) => {
     card.classList.remove('d-none');
   }
 }
-// update city function
-const updateCity = async (CityName) => {
-
-  const cityDets = await getCity(CityName);
-  const weather = await getWeather(cityDets.Key);
-
-  return { cityDets, weather };
-}
 
 cityForm.addEventListener('submit', e => {
   // get city name
@@ -54,16 +48,18 @@ cityForm.addEventListener('submit', e => {
   cityForm.reset();
 
   // update the ui with new city 
-  updateCity(CityName)
+  forecast.updateCity(CityName)
     .then(data => updateUi(data))
     .catch(err =>  console.log('Couldn\'t fetch data'));
+
+
   e.preventDefault();
 
-  // localStorage.setItem('city', CityName);
+  localStorage.setItem('city', CityName);
 })
 
-// if(localStorage.getItem('city')) {
-//   updateCity(localStorage.getItem('city'))
-//     .then(data => updateUi(data)) 
-//     .catch(err => console.log(err));
-// }
+if(localStorage.getItem('city')) {
+  forecast.updateCity(localStorage.getItem('city'))
+    .then(data => updateUi(data)) 
+    .catch(err => console.log(err));
+}
