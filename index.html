@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- css -->
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
 
-  <title>Weather Forecast</title>
-</head>
-<body>
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <div class="container my-5 mx-auto">
+      <h1 class="text-muted text-center my-4">Weather Info</h1>
 
-  <div class="container my-5 mx-auto">
+      <form class="change-location my-4 text-center text-muted">
+        <label for="city">Enter a city for Weather information</label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          autocomplete="off"
+          class="form-control p-4"
+        />
+      </form>
 
-    <h1 class="text-muted text-center my-4">Weather Info</h1>
+      <div class="card shadow-lg rounded d-none">
+        <!-- Day/Night image -->
+        <img
+          src="https://via.placeholder.com/400x300"
+          class="time card-img-top"
+        />
 
-    <form class="change-location my-4 text-center text-muted">
+        <!-- Day/Night icon -->
+        <div class="icon bg-light mx-auto text-center">
+          <img src="" alt="" />
+        </div>
 
-      <label for="city">Enter a city for Weather information</label>
-      <input type="text" name="city" autocomplete="off" class="form-control p-4">
-
-    </form>
-
-    <div class="card shadow-lg rounded d-none">
-
-      <img src="https://via.placeholder.com/400x300" class="time card-img-top">
-
-      <div class="icon bg-light mx-auto text-center">
-        <img src="" alt="">
-      </div>
-
-      <div class="text-muted text-uppercase text-center details">
-        <h5 class="my-3">city name</h5>
-        <div class="my-3">weater condition</div>
-        <div class="display-4 my-4">
-          <span>temp</span>
-          <span>&deg;C</span>
+        <!-- weather details part -->
+        <div class="text-muted text-uppercase text-center details">
         </div>
       </div>
-
     </div>
-  </div>
-  <script src="js/forecast.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/forecast.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

@@ -6,51 +6,46 @@ const icon = document.querySelector('.icon img');
 
 const forecast = new Forecast();
 
-
 const updateUi = (data) => {
+  // getting data using ES6 destructure
+  const { cityDetails, weatherDetails } = data;
 
-  // const cityDets = data.cityDets;
-  // const weather = data.weather;
-
-  // destructure properties
-  const {cityDets, weather} = data;
-
-  // update the ui
+  // update the weather details part of the UI
   details.innerHTML = `
-    <h5 class="my-3">${cityDets.EnglishName}</h5>
-    <div class="my-3">${weather.WeatherText}</div>
+    <h5 class="my-3">${cityDetails.EnglishName}</h5>
+    <div class="my-3">${weatherDetails.WeatherText}</div>
     <div class="display-4 my-4">
-      <span>${weather.Temperature.Metric.Value}</span>
+      <span>${weatherDetails.Temperature.Metric.Value}</span>
       <span>&deg;C</span>
     </div>
   `;
 
-  // update the day/night img and icon
+  // update the day/night icon
+  const iconSrc = `img/icons/${weatherDetails.WeatherIcon}.svg`;
+  icon.setAttribute("src", iconSrc);
 
-  const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
-  icon.setAttribute('src', iconSrc);
-
-  if(weather.IsDayTime) {
-    time.setAttribute('src', 'img/day.svg');
+  // update the day/night image
+  if (weatherDetails.IsDayTime) {
+    time.setAttribute("src", "img/day.svg");
   } else {
-    time.setAttribute('src','img/night.svg');
+    time.setAttribute("src", "img/night.svg");
   }
 
   // remove d-none class if it is present
-  if(card.classList.contains('d-none')) {
-    card.classList.remove('d-none');
+  if (card.classList.contains("d-none")) {
+    card.classList.remove("d-none");
   }
 }
 
 cityForm.addEventListener('submit', e => {
-  // get city name
+  // get city name from input field
   const CityName = cityForm.city.value.trim();
   cityForm.reset();
 
   // update the ui with new city 
   forecast.updateCity(CityName)
     .then(data => updateUi(data))
-    .catch(err =>  console.log('Couldn\'t fetch data'));
+    .catch(err =>  console.log(err,'Couldn\'t fetch data'));
 
 
   e.preventDefault();
