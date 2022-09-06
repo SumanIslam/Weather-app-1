@@ -7,14 +7,21 @@ const icon = document.querySelector('.icon img');
 const forecast = new Forecast();
 
 const updateUi = (data) => {
+  document.querySelector(".result").style.display = "none";
+  document.querySelector("#loading").style.display = "block";
+
+  setTimeout(() => {
+    document.querySelector("#loading").style.display = "none";
+    document.querySelector(".result").style.display = "block";
+  }, 2000);
+
   // getting data using ES6 destructure
   const { cityDetails, weatherDetails } = data;
 
   // update the weather details part of the UI
   details.innerHTML = `
-    <h5 class="my-3">${cityDetails.EnglishName}</h5>
-    <div class="my-3">${weatherDetails.WeatherText}</div>
-    <div class="display-4 my-4">
+    <div class="my-2 capitalize">${cityDetails.EnglishName} <b>-</b> ${weatherDetails.WeatherText}</div>
+    <div class="display-3 my-3">
       <span>${weatherDetails.Temperature.Metric.Value}</span>
       <span>&deg;C</span>
     </div>
@@ -23,17 +30,14 @@ const updateUi = (data) => {
   // update the day/night icon
   const iconSrc = `img/icons/${weatherDetails.WeatherIcon}.svg`;
   icon.setAttribute("src", iconSrc);
+  icon.className += "bg-light";
+  icon.style.borderRadius = "50%";
 
   // update the day/night image
   if (weatherDetails.IsDayTime) {
     time.setAttribute("src", "img/day.svg");
   } else {
     time.setAttribute("src", "img/night.svg");
-  }
-
-  // remove d-none class if it is present
-  if (card.classList.contains("d-none")) {
-    card.classList.remove("d-none");
   }
 }
 

@@ -2,17 +2,21 @@ body {
   background-color: #eee;
   font-size: 1rem;
 }
+.mb-2 {
+  margin-bottom: 2rem;
+}
 .container {
-  max-width: 600px;
+  max-width: 400px;
 }
 .icon {
   margin-top: -50px;
-  border-radius: 50%;
-}
-span {
-  font-size: 4rem;
 }
 
-.weather-info {
-  height: 500px;
+.capitalize {
+  text-transform: capitalize;
+}
+
+#loading,
+.result {
+  display: none;
 }
