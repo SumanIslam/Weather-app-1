@@ -12,3 +12,7 @@ body {
 span {
   font-size: 4rem;
 }
+
+.weather-info {
+  height: 800px;
+}
