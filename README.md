@@ -1,2 +1,2 @@
 ## website link
-Click [here](https://sumanislam.github.io/Weather-app-1/) to see the Live preview of the website.
+Click [here](https://weatherin.vercel.app/) to see the Live preview of the website.
