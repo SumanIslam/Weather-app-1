@@ -9,9 +9,7 @@ class Forecast {
 
   async updateCity(cityName) {
     const cityDetails = await this.getCity(cityName);
-    console.log(cityDetails);
     const weatherDetails = await this.getWeather(cityDetails.Key);
-    console.log(weatherDetails);
 
     return { cityDetails, weatherDetails };
   }
